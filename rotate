@@ -32,6 +32,7 @@ if [[ $1 = "--help" ]]; then
   echo "To randomize file order: 'rotate --shuffle'"
   echo "To remove a file: 'rotate --delete filenumber'"
   echo "To rotate background: 'rotate'"
+  echo "To remove all traces of this program except the script itself: 'rotate --uninstall'"
 fi
 
 if [[ $1 = "--initialize" || $1 = "-i" ]]; then
@@ -100,6 +101,18 @@ if [[ $1 = "--shuffle" || $1 = "-s" ]]; then
   done
   rm $HOME/.backgrounds/.shufflelist
   rm $HOME/.backgrounds/.newlist
+fi
+
+if [[ $1 = "--uninstall" || $1 = "-u" ]]; then
+  echo "Are you sure? This will delete all symlinks created."
+  read RESPONSE
+  if [[ $RESPONSE = y || $RESPONSE = yes || $RESPONSE = positive ]]; then
+    rm $HOME/.backgrounds/.current
+    rm $HOME/.backgrounds/*
+    rmdir $HOME/.backgrounds/
+    exit
+  fi
+  echo "Symlinks preserved."
 fi
 
 #TODO: silent when not verbose, add verbose flag
