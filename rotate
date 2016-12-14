@@ -3,7 +3,6 @@ FILENAME=$(basename $BASH_SOURCE)
 #echo $FILENAME #for debug purposes
 ARGS=$(echo $#)
 #echo $ARGS #for debug purposes
-HOME=$(echo -n "/home/" && whoami)
 
 if [[ "$ARGS" = 0 ]]; then
   CURR=$(cat $HOME/.backgrounds/.current)
@@ -19,8 +18,8 @@ if [[ "$ARGS" = 0 ]]; then
     exit
   fi
   echo -n "Changing to background "
-  echo $(($CURR+1)) 
-  NEXT=$(($CURR+1)) 
+  echo $(($CURR+1))
+  NEXT=$(($CURR+1))
   feh --bg-fill $HOME/.backgrounds/$NEXT
   echo $(($CURR+1)) > $HOME/.backgrounds/.current
   exit
