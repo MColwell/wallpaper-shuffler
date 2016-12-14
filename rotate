@@ -1,5 +1,5 @@
 #!/bin/bash
-FILENAME=$(basename $BASH_SOURCE)
+#FILENAME=$(basename $BASH_SOURCE)
 #echo $FILENAME #for debug purposes
 ARGS=$(echo $#)
 #echo $ARGS #for debug purposes
