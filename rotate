@@ -46,7 +46,7 @@ MAX=$(ls $HOME/.backgrounds/ | wc -w)
 if [[ $1 = "--add" || $1 = "-a" ]]; then
   X=$(identify $2 | cut -d ' ' -f 3)
   Y=$(echo $X | cut -d 'x' -f 1)
-  Z=$(echo $x | cut -d 'x' -f 2)
+  Z=$(echo $X | cut -d 'x' -f 2)
   if [[ "$Y" -lt "$Z" ]]; then
     echo "This is portrait format! Cannot add $2"
     exit
